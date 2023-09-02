@@ -95,6 +95,7 @@ class BFM09ReconModel(BaseReconModel):
         if render:
             face_texture = self.get_color(tex_coeff) # TODO: texture should be replaced by the G synthesized features
             face_norm = self.compute_norm(vs, self.tri, self.point_buf) # but the face_norm remains unchanged, because it determines the geometry of the face
+                                                                        # but a problem is: how to get the norm from any given input image.
             face_norm_r = face_norm.bmm(rotation)
             face_color = self.add_illumination(
                 face_texture, face_norm_r, gamma)
