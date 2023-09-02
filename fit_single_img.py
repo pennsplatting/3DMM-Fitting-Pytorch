@@ -43,6 +43,7 @@ def fit(args):
 
     face_img = img_arr[bbox[1]:bbox[3], bbox[0]:bbox[2], :]
     resized_face_img = cv2.resize(face_img, (args.tar_size, args.tar_size))
+    # TODO: add this processing (maybe including face cropping step) to the eg3d image processing.
 
     lms = fa.get_landmarks_from_image(resized_face_img)[0]
     lms = lms[:, :2][None, ...]
