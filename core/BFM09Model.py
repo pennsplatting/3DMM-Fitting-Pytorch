@@ -93,8 +93,8 @@ class BFM09ReconModel(BaseReconModel):
         lms_proj = torch.stack(
             [lms_proj[:, :, 0], self.img_size-lms_proj[:, :, 1]], dim=2)
         if render:
-            face_texture = self.get_color(tex_coeff)
-            face_norm = self.compute_norm(vs, self.tri, self.point_buf)
+            face_texture = self.get_color(tex_coeff) # TODO: texture should be replaced by the G synthesized features
+            face_norm = self.compute_norm(vs, self.tri, self.point_buf) # but the face_norm remains unchanged, because it determines the geometry of the face
             face_norm_r = face_norm.bmm(rotation)
             face_color = self.add_illumination(
                 face_texture, face_norm_r, gamma)
