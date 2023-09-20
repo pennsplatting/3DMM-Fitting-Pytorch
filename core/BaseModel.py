@@ -31,6 +31,10 @@ class BaseReconModel(nn.Module):
         self.reverse_z = self._get_reverse_z(device)
         self.camera_pos = self._get_camera_pose(device)
 
+        
+        ### TODO: these are all the parameters that 3DMM-Fitting is optimizing.
+                     ### We have to remove them so that they are not learnable, 
+                     ### but instead generated from eg3d 
         self.rot_tensor = None
         self.exp_tensor = None
         self.id_tensor = None
