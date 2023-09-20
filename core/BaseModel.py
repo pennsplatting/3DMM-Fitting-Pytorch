@@ -235,6 +235,8 @@ class BaseReconModel(nn.Module):
                                  self.rot_tensor, self.gamma_tensor,
                                  self.trans_tensor)
 
+    ### TODO: implement a child class of BFM09Model, and implement this "init_coeff_tensors" function 
+    ### to take the generated feature image from eg3d for "init_coeff_tensors". 
     def init_coeff_tensors(self, id_coeff=None, tex_coeff=None):
         if id_coeff is None:
             self.id_tensor = torch.zeros(
